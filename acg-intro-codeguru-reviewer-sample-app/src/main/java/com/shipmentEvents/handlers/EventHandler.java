@@ -68,8 +68,9 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
             final List<KeyVersion> filesProcessed = processEventsInBucket(bucketName, logger, latestStatusForTrackingNumber);
             filesToDelete.put(bucketName, filesProcessed);
         }
-        final AmazonS3 s3Client = EventHandler.getS3Client();
         
+        final AmazonS3 s3Client = EventHandler.getS3Client();
+
 
         //Create a new file in the Constants.SUMMARY_BUCKET
         logger.log("Map of statuses -> " + latestStatusForTrackingNumber);
